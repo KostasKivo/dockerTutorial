@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Images and Containers </title>
+  <style>
+    h3>p {
+      font-weight: normal;
+      font-size: 17px;
+    }
+
+    .container {
+      background-color: #5F9EA0;
+      margin: 20px;
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="background-color: powderblue;">
+
+  <h1>Docker Basic commands</h1>
+
+  <!-- Images contain the code and the setup to create the containers which are the running instance of the image-->
+  <div class="container">
+    <p>Used to download Images from Dockerhub (images repository) in this
+      case we download the nodejs image </p>
+    <h3>docker run node</h3>
+    <br>
+
+  </div>
+  <div class="container">
+
+    <p>Used to see which processes are running </p>
+    <h3>docker ps -a</h3>
+    <br>
+
+  </div>
+
+  <div class="container">
+
+    <p>Used to create the container with an interactive node terminal so we can acess the container we created</p>
+    <h3>docker un -it node</h3>
+    <br>
+
+  </div>
+
+  <div class="container">
+
+    <h2>Creating my own Docker image (filename should be Dockerfile with no extension)</h2>
+    <h3>
+      <p>Sets the base on which our image will be created, in this case the node image from Dockerhub</p>
+      FROM node
+
+      <p>Sets the working directory where Docker will run commands and do things</p>
+      WORKDIR /app
+
+      <p>The image should contain all files inside the Dockerfile folder (first .)
+        and they will be stored in a folder inside the image called /app</p>
+      COPY . /app
+
+      <p>Runs a command, for node we would do npm install so we tell Docker to do this thing</p>
+      RUN npm install
+
+      <p>Ports are not exposed outside the containter except if we ask it, so we ask to expose PORT 80 because that's what the server.js file is using
+        . This command is optional but recommended.</p>
+      EXPOSE 80
+
+      <p>When the container starts it will start the server based on the node jsfile.js command
+        Difference with RUN npm install is that the second will be executed when image is created</p>
+      CMD ["node", "server.js"]
+    </h3>
+    <br>
+  </div>
+
+  <div class="container">
+
+    <p>Build the image in the current directory</p>
+    <h3>docker build .</h3>
+    <br>
+
+  </div>
+
+  <div class="container">
+
+    <p>Create a contaniner based from the id you got when building the image</p>
+    <h3>docker run imageID</h3>
+    <br>
+
+  </div>
+
+  <div class="container">
+
+    <p>Stop the container, container name can be found from <i>docker ps</i> command </p>
+    <h3>docker stop containerName</h3>
+    <br>
+
+  </div>
+
+  <div class="container">
+    <p>Create container under port, here 3000 is the port of our computer and 80 the container's port</p>
+    <h3>docker run -p 3000:80 imageID</h3>
+    <br>
+  </div>
+
+
+  <div class="container">
+    <p>Restarts an already created container</p>
+    <h3>docker start imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Docker attached and detached containers, -d flag creates the container detached so we will be able to used the CMD and we won't be locked
+      , -a flag is used for attached containers. <i>docker attach</i> attaches you to the container even if it has already started.</p>
+    <h3>docker run 8000:80 -d imageID</h3>
+    <h3>docker attach imageID</h3>
+    <h3>docker start -a imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Shows the logs of the container</p>
+    <h3>docker logs imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>When the container has input we should run the container in Interactive mode</p>
+    <h3>docker run -it imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Remove containers</p>
+    <h3>docker rm containerID containerID containerID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>List of images we have created</p>
+    <h3>docker images</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Remove images</p>
+    <h3>docker rmi imageID imageID imageID</h3>
+    <h3>docker image prune</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Removes container when it is stopped with --rm flag</p>
+    <h3>docker run -a --rm imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Inspect image</p>
+    <h3>docker inspect imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Copy files from and to an image filespace</p>
+    <h3>docker cp fileLocation fileLocation</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+</body>
+
+</html>
