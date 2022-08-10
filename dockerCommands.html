@@ -190,6 +190,42 @@
   </div>
 
   <div class="container">
+    <p>Create a new volume that we want to be saved, <i>inside the Dockerfile</i></p>
+    <h3>VOLUME ["/app/feedback"] </h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>To create a new volume we use the <i>-v</i> flag where feedback is the name of the volume and /app/feedback the name of the place we want the file to be saved </p>
+    <h3>docker run -d -p 3000:80 -rm --name feedback-app -v feedback:/app/feedback imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>To list all volumes the command is </p>
+    <h3>docker volume ls</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>To bind a mount use the <i>-v</i>flag and then the fullFilePath you want to mount and the remote path where you want it to be saved</p>
+    <h3>docker run -d -p 3000:80 -v myVolume1:/app/feedback -v fullFilePath:/app</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
     <p></p>
     <h3></h3>
     <br>
