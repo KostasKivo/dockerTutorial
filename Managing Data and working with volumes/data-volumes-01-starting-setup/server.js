@@ -20,9 +20,11 @@ app.get('/', (req, res) => {
 app.get('/exists', (req, res) => {
   const filePath = path.join(__dirname, 'pages', 'exists.html');
   res.sendFile(filePath);
+  console.log("File already exists");
 });
 
 app.post('/create', async (req, res) => {
+  console.log("Creating new file");
   const title = req.body.title;
   const content = req.body.text;
 
@@ -43,4 +45,4 @@ app.post('/create', async (req, res) => {
   });
 });
 
-app.listen(80);
+app.listen(process.env.PORT);

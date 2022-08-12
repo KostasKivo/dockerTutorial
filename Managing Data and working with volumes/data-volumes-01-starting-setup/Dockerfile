@@ -8,8 +8,11 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+ENV PORT 80
 
-VOLUME ["/app/feedback"]
+EXPOSE $PORT
 
-CMD ["node","server.js"]
+# VOLUME ["/app/feedback"]
+
+# We named the start script in the package.json file
+CMD ["npm","start"]
