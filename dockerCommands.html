@@ -232,6 +232,42 @@
   </div>
 
   <div class="container">
+    <p>When we want connection from container to our host machine, for example a database, we replace the DB URL localhost with host.docker.internal</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>We can create a common network for our containers using the <i>--network networkName</i> flag</p>
+    <h3>docker run -d --name mongodb --network favorites-net imageID</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Create a docker network</p>
+    <h3>docker network create networkName</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>When we want connection from containers to the same network, for example a database, we replace the DB URL localhost with the DB container's name we gave with --name tag or the auto generated one</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
     <p></p>
     <h3></h3>
     <br>
