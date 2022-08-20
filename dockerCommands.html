@@ -269,20 +269,22 @@
   </div>
 
   <div class="container">
-    <p></p>
+    <p>Utility containers are containers that help us install dependencies on the container and then bind mount them to our host without having to
+    install them locally, for example we install nodejs on container and bind mount a folder so that we get the package.json without having to install nodejs</p>
     <h3></h3>
     <br>
   </div>
 
   <div class="container">
-    <p></p>
-    <h3></h3>
+    <p>Dockerfile <i>ENTRYPOINT</i> step appends whatever command is last when we <i>docker run</i>. Difference with CMD is that it appends, while CMD overwrites the last command of the docker run</p>
+    <p>So for example if we want a container to run only npm commands we would add an ENTRYPOINT like</p>
+    <h3>ENTRYPOINT ["npm"]</h3>
     <br>
   </div>
 
   <div class="container">
-    <p></p>
-    <h3></h3>
+    <p>Docker-compose run allows us to run only one service which is inside the compose file</p>
+    <h3>docker-compose run npm init</h3>
     <br>
   </div>
 
