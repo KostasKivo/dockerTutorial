@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      deployment: first-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        deployment: first-app
+        tier: backend
+    spec:
+      containers:
+        - name: first-containers
+          image: academind/kub-first-app:latest
+          livenessProbe:
+            htttpGet:
+              path: /
+              port: 8080

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kubernetes</title>
+  <style>
+    h3>p {
+      font-weight: normal;
+      font-size: 17px;
+    }
+
+    .container {
+      background-color: #5F9EA0;
+      margin: 20px;
+      padding-top: 5px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body style="background-color: powderblue;">
+
+  <h1>Kubernetes Basics</h1>
+
+  <div class="container">
+    <p>We use <b>kubectl</b> always on our local machine to send instructions to the Kubernetes cluster</p>
+    <h3>kubectl</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>We create objects with the <b>kubectl create</b> command. A deployment, deployes and manages nodes. Kubernetes works with objects. The deployment we create goes directly to the Kubernetes cluster</p>
+    <h3>kubectl create deployment appName --image=imageNameOnDockerHub</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>See all deployments you have</p>
+    <h3>kubectl get deployments</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>See all pods you have</p>
+    <h3>kubectl get pods</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Delete deployment</p>
+    <h3>kubectl delete deployment appName</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>When we create a deployment the command is run by Master Node's Control plane.
+    Which is send to the scheduler to find the best Node to create the Pod(s)
+    Once the Worker is found kubelet manages and creates what it's required
+    And then a new Pod is created with the container of our Image inside of it</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>A service object exposes pods to the cluster or externally. All pods inside a service have the same IP and allow external acess to Pods</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Expose a delpoyment object with appName and we add a LoadBalancer type </p>
+    <h3>kubectl expose deployment appName --type=LoadBalancer --port=8080</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Scale the deployment object of the first app with 3 pods</p>
+    <h3>kubectl scale deployment/first-app --replicas=3</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Set new image for deployment</p>
+    <h3>kubectl set image deployment/appName containerName=imageNameOnDockerHub:tagName</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Undo latest deployment</p>
+    <h3>kubectl rollout undo deployment/appName</h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>In imperative declaration we always create the objects we want. In Declarative we point to a yaml file (similar to docker-compose)</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p>Declarative pointing to a yaml file</p>
+    <h3>kubectl apply -f=pathToFile.yaml</h3>
+    <br>
+  </div>
+
+
+  <div class="container">
+    <p>The selector inside  a yaml files points to which pods to controll with their labels. It will only control the specified labels pods</p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+  <div class="container">
+    <p></p>
+    <h3></h3>
+    <br>
+  </div>
+
+
+
+  </body>
